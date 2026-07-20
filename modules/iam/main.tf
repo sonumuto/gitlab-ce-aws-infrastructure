@@ -38,3 +38,8 @@ resource "aws_iam_role_policy_attachment" "gl_s3" {
   role       = aws_iam_role.gitlab_s3_access.name
   policy_arn = aws_iam_policy.gl_s3_policy.arn
 }
+
+resource "aws_iam_instance_profile" "gitlab" {
+  name = "gitlab-instance-profile"
+  role = aws_iam_role.gitlab_s3_access.name
+}
